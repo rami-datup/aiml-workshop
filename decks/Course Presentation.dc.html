@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Presentation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    .cp, .cp * { font-family: 'Space Grotesk', system-ui, sans-serif; }
+    .cp .mono, .cp .mono * { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; }
+    .cp { --dark: #0D0D0C; --light: #F9F8F5; --accent: oklch(57% 0.23 251); --accent-lt: oklch(78% 0.13 251); --green: oklch(46% 0.17 145); --green-lt: oklch(80% 0.17 145); --ink: #111110; --ink-soft: #55534F; --line-lt: #E1E0DB; --line-dk: rgba(255,255,255,0.14); background: var(--light); color: var(--ink); line-height: 1.5; }
+    .cp a { color: inherit; }
+    .cp a:focus-visible { outline: 3px solid var(--accent-lt); outline-offset: 3px; border-radius: 4px; }
+    .cp .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+    .cp .band-dark { background: var(--dark); color: #F9F8F5; }
+    .cp .band-light { background: var(--light); color: var(--ink); }
+    .cp .band { padding-block: clamp(56px, 9vw, 112px); }
+    .cp .eyebrow { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .cp .band-dark .eyebrow { color: var(--accent-lt); }
+    .cp h2 { font-size: clamp(34px, 5vw, 58px); font-weight: 700; line-height: 1.08; text-wrap: balance; max-width: 18ch; }
+    .cp .lede { font-size: clamp(18px, 2vw, 21px); color: var(--ink-soft); max-width: 62ch; margin-top: 20px; text-wrap: pretty; }
+    .cp .band-dark .lede { color: rgba(249,248,245,0.72); }
+
+    /* hero */
+    .cp .hero { padding-block: clamp(48px, 8vw, 96px) clamp(56px, 8vw, 104px); background: radial-gradient(ellipse at 85% 10%, oklch(57% 0.23 251 / 0.22), transparent 55%), var(--dark); }
+    .cp .hero-top { display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center; margin-bottom: clamp(48px, 9vw, 120px); }
+    .cp .hero-top .wk { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-lt); }
+    .cp .nav { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+    .cp .nav a { font-size: 16px; font-weight: 500; text-decoration: none; color: rgba(249,248,245,0.78); padding: 6px 0; border-bottom: 1px solid transparent; }
+    .cp .nav a:hover { color: #fff; border-bottom-color: var(--accent-lt); }
+    .cp h1 { font-size: clamp(46px, 8.4vw, 112px); font-weight: 700; line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; max-width: 12ch; }
+    .cp .sub { font-size: clamp(22px, 3.2vw, 36px); color: rgba(249,248,245,0.6); margin-top: 20px; }
+    .cp .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(32px, 6vw, 88px); margin-top: clamp(40px, 6vw, 72px); align-items: end; }
+    .cp .intro { font-size: clamp(18px, 1.9vw, 21px); line-height: 1.65; color: rgba(249,248,245,0.86); max-width: 64ch; text-wrap: pretty; }
+    .cp .by { display: flex; align-items: center; gap: 20px; }
+    .cp .by .bar { width: 3px; height: 52px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+    .cp .by .who { font-size: 22px; font-weight: 600; }
+    .cp .by .role { font-size: 17px; color: rgba(249,248,245,0.66); margin-top: 4px; }
+    .cp .facts { display: flex; flex-wrap: wrap; gap: 14px 44px; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line-dk); }
+    .cp .fact b { display: block; font-size: 40px; line-height: 1; font-weight: 700; }
+    .cp .fact span { font-size: 15px; color: rgba(249,248,245,0.66); }
+
+    /* objectives */
+    .cp .obj { margin-top: clamp(32px, 5vw, 56px); border-top: 1px solid var(--ink); }
+    .cp .obj-row { display: grid; grid-template-columns: minmax(150px, 0.28fr) 1fr; gap: 8px 40px; padding: 28px 0; border-bottom: 1px solid var(--line-lt); }
+    .cp .obj-row dt { font-size: clamp(24px, 3vw, 32px); font-weight: 700; color: var(--accent); line-height: 1.15; }
+    .cp .obj-row dd { font-size: clamp(18px, 2vw, 21px); line-height: 1.55; max-width: 62ch; text-wrap: pretty; min-width: 0; }
+    @media (max-width: 640px) { .cp .obj-row { grid-template-columns: 1fr; } }
+
+    /* syllabus */
+    .cp .mods { margin-top: clamp(32px, 5vw, 56px); border-top: 1px solid var(--line-dk); }
+    .cp .mod { display: grid; grid-template-columns: minmax(200px, 0.34fr) 1fr; gap: 20px clamp(24px, 5vw, 64px); padding: 40px 0; border-bottom: 1px solid var(--line-dk); }
+    .cp .mod-id { min-width: 0; }
+    .cp .mod-n { font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-lt); }
+    .cp .mod h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 700; line-height: 1.15; margin-top: 12px; text-wrap: balance; }
+    .cp .mod-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 20px; }
+    .cp .mod-links a { font-size: 16px; font-weight: 600; color: var(--accent-lt); text-decoration: underline; text-underline-offset: 4px; }
+    .cp .topics { list-style: none; display: grid; gap: 12px; min-width: 0; }
+    .cp .topics li { font-size: clamp(17px, 1.8vw, 19px); line-height: 1.5; color: rgba(249,248,245,0.86); padding-left: 24px; position: relative; text-wrap: pretty; }
+    .cp .topics li::before { content: ""; position: absolute; left: 0; top: 0.66em; width: 10px; height: 2px; background: var(--accent-lt); }
+    .cp .labs-tag { margin-top: 22px; font-size: 15px; color: rgba(249,248,245,0.66); }
+    .cp .labs-tag b { color: #F9F8F5; font-weight: 600; }
+    @media (max-width: 760px) { .cp .mod { grid-template-columns: 1fr; } }
+
+    /* labs */
+    .cp .repo { display: inline-flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin-top: 28px; padding: 12px 20px; border: 1px solid var(--line-lt); border-radius: 10px; background: #fff; font-size: 16px; color: var(--ink-soft); }
+    .cp .repo .mono { color: var(--ink); font-size: 15px; font-weight: 600; }
+    .cp .labs { margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 20px; }
+    .cp .lab { background: #fff; border: 1px solid var(--line-lt); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .cp .lab-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .cp .lab-id { font-size: 17px; font-weight: 600; color: var(--accent); }
+    .cp .lab-mod { font-size: 14px; color: var(--ink-soft); }
+    .cp .lab h3 { font-size: 24px; font-weight: 700; line-height: 1.2; text-wrap: balance; }
+    .cp .lab p { font-size: 17px; line-height: 1.55; color: var(--ink-soft); text-wrap: pretty; }
+    .cp .lab .stack { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line-lt); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink); }
+    .cp .lab:target { border-color: var(--accent); box-shadow: 0 0 0 3px oklch(57% 0.23 251 / 0.25); }
+    .cp .lab-wide { grid-column: 1 / -1; }
+
+    .cp footer { padding-block: 40px; font-size: 15px; color: rgba(249,248,245,0.66); }
+    .cp footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</helmet>
+
+<div class="cp">
+
+  <!-- HERO + COURSE INTRODUCTION -->
+  <header class="hero band-dark" id="top">
+    <div class="wrap">
+      <div class="hero-top">
+        <p class="wk">Course presentation</p>
+        <nav class="nav" aria-label="On this page">
+          <a href="#objectives">Learning objectives</a>
+          <a href="#syllabus">Syllabus</a>
+          <a href="#labs">Hands-on labs</a>
+        </nav>
+      </div>
+      <h1>AI from Zero to Hero</h1>
+      <p class="sub">AI shaping FoodTech &amp; SocialTech</p>
+
+      <div class="hero-grid">
+        <p class="intro">AI from Zero to Hero is a hands-on introduction to deep learning for people who want to build with it and judge it. We open with what AI promises and what it has already delivered, from AlphaGo and AlphaFold to NotCo's Giuseppe, which matches plant ingredients to animal-based foods at the molecular level. Then we open the black box: you compute a neuron by hand, implement a two-layer network in NumPy, and rebuild it in TensorFlow. You learn how activation functions shape what a network can represent, how bias and variance tell you what to fix next, and how CNNs, LSTMs and Transformers extend the same ideas to images, text and time series. Every lecture comes with a notebook, so each concept is something you have run, broken and repaired yourself.</p>
+        <div>
+          <div class="by">
+            <div class="bar" aria-hidden="true"></div>
+            <div>
+              <p class="who">Ramiro Chaparro, PhD</p>
+              <p class="role">CTO &amp; Co-Founder, Datup</p>
+            </div>
+          </div>
+          <div class="facts">
+            <div class="fact"><b>5</b><span>lecture modules</span></div>
+            <div class="fact"><b>9</b><span>lab notebooks</span></div>
+            <div class="fact"><b>6</b><span>learning objectives</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LEARNING OBJECTIVES -->
+  <section class="band band-light" id="objectives">
+    <div class="wrap">
+      <p class="eyebrow">What you take away</p>
+      <h2>By the end of the course you can</h2>
+      <dl class="obj">
+        <div class="obj-row">
+          <dt>Place</dt>
+          <dd>Locate AI, machine learning and deep learning on the capability spectrum, and explain why deep learning made problems like Go and protein folding solvable.</dd>
+        </div>
+        <div class="obj-row">
+          <dt>Compute</dt>
+          <dd>Trace how a neuron and a layer turn inputs into outputs, and implement forward and backward propagation for a two-layer network in NumPy.</dd>
+        </div>
+        <div class="obj-row">
+          <dt>Build</dt>
+          <dd>Define, train and use neural networks in TensorFlow and Keras for binary and multiclass classification, such as handwritten digit recognition.</dd>
+        </div>
+        <div class="obj-row">
+          <dt>Choose</dt>
+          <dd>Pick activation functions for hidden and output layers, and write softmax and its loss in a numerically stable way.</dd>
+        </div>
+        <div class="obj-row">
+          <dt>Diagnose</dt>
+          <dd>Split data into training, cross-validation and test sets, tell high bias from high variance, and decide whether to add data, features or regularization.</dd>
+        </div>
+        <div class="obj-row">
+          <dt>Apply</dt>
+          <dd>Recognize the main architecture families (CNNs, RNNs and LSTMs, Transformers, generative models, detectors) and forecast a real time series with the Temporal Fusion Transformer and Chronos-2.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SYLLABUS -->
+  <section class="band band-dark" id="syllabus">
+    <div class="wrap">
+      <p class="eyebrow">Syllabus</p>
+      <h2>Five modules, from motivation to modern architectures</h2>
+      <p class="lede">Each module maps to a lecture deck in this project and to the lab notebooks that practice it.</p>
+
+      <div class="mods">
+
+        <article class="mod">
+          <div class="mod-id">
+            <p class="mod-n">Module 1</p>
+            <h3>Introduction &amp; Motivation</h3>
+            <div class="mod-links"><a href="Intro &amp; Motivation.dc.html">Open lecture</a></div>
+          </div>
+          <div>
+            <ul class="topics">
+              <li>The AI capability spectrum, from rule-based systems to self-evolving AI</li>
+              <li>How AI, machine learning and deep learning nest inside one another</li>
+              <li>Landmark systems: AlphaGo, AlphaStar, AlphaFold, and the 2024 Nobel Prize in Chemistry</li>
+              <li>Case study: NotCo's Giuseppe, from molecular analysis to a winning recipe</li>
+              <li>Neural network building blocks: the neuron equation, autoencoders, LSTM and GRU, attention</li>
+              <li>A closing reflection on alignment and existential risk</li>
+            </ul>
+            <p class="labs-tag"><b>Labs:</b> discussion-led, no notebook</p>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-id">
+            <p class="mod-n">Module 2</p>
+            <h3>Neural Network Implementation</h3>
+            <div class="mod-links"><a href="Neural Network Implementation.dc.html">Open lecture</a></div>
+          </div>
+          <div>
+            <ul class="topics">
+              <li>A network as layers of neurons, and how deeper layers detect richer features</li>
+              <li>The activation rule: what every neuron outputs, written in general form</li>
+              <li>Forward propagation by hand, with a coffee roast and a handwritten digit</li>
+              <li>Stacking layers and thresholding the output into a decision</li>
+              <li>The same network in TensorFlow: define the layers, stack, train, predict</li>
+              <li>Writing dense() and sequential() yourself in NumPy</li>
+            </ul>
+            <p class="labs-tag"><b>Labs:</b> <a href="#lab-l0-1">L0.1</a> · <a href="#lab-l1-1">L1.1</a> · <a href="#lab-l1-2">L1.2</a> · <a href="#lab-l2-1">L2.1</a></p>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-id">
+            <p class="mod-n">Module 3</p>
+            <h3>Activation Functions</h3>
+            <div class="mod-links"><a href="Activation Functions.dc.html">Open lecture</a></div>
+          </div>
+          <div>
+            <ul class="topics">
+              <li>The activation function g: linear, sigmoid and ReLU</li>
+              <li>GELU and its place in the feedforward block of transformers and GPT models</li>
+              <li>Choosing the output activation, and defaulting to ReLU for hidden layers</li>
+              <li>Why purely linear networks collapse into linear regression</li>
+              <li>Softmax for multiclass classification and its cross-entropy loss</li>
+              <li>The floating-point precision problem and numerically accurate losses</li>
+              <li>Multilabel classification with one sigmoid per output</li>
+            </ul>
+            <p class="labs-tag"><b>Labs:</b> <a href="#lab-l3-1">L3.1</a></p>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-id">
+            <p class="mod-n">Module 4</p>
+            <h3>Regularization, Bias and Variance</h3>
+            <div class="mod-links"><a href="Regularization, Bias and Variance.dc.html">Open lecture</a></div>
+          </div>
+          <div>
+            <ul class="topics">
+              <li>What it means to generalize, and why training error alone misleads</li>
+              <li>Training, cross-validation and test sets; measuring regression and classification error</li>
+              <li>Model selection: polynomial degree, network architecture, and the three-set workflow</li>
+              <li>Recognizing underfitting and overfitting from the error numbers</li>
+              <li>Regularization and how λ moves the bias-variance tradeoff</li>
+              <li>Baseline performance, learning curves, and what to try next</li>
+              <li>Bias and variance in large neural networks, and errors on skewed datasets</li>
+            </ul>
+            <p class="labs-tag"><b>Labs:</b> <a href="#lab-l4-1">L4.1</a> · <a href="#lab-l4-2">L4.2</a></p>
+          </div>
+        </article>
+
+        <article class="mod">
+          <div class="mod-id">
+            <p class="mod-n">Module 5</p>
+            <h3>Advanced Neural Networks</h3>
+            <div class="mod-links"><a href="Advanced Neural Networks.dc.html">Open lecture</a></div>
+          </div>
+          <div>
+            <ul class="topics">
+              <li>The architecture landscape: CNNs, RNNs and LSTMs, Transformers, generative models, detection and segmentation</li>
+              <li>Attention Is All You Need: the encoder-decoder architecture and its results</li>
+              <li>Nested Learning, a recent research direction from Google Research</li>
+              <li>The Temporal Fusion Transformer for multi-horizon probabilistic forecasting</li>
+            </ul>
+            <p class="labs-tag"><b>Labs:</b> <a href="#lab-l5-1">L5.1</a> · <a href="#lab-l5-2">L5.2</a></p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDS-ON LABS -->
+  <section class="band band-light" id="labs">
+    <div class="wrap">
+      <p class="eyebrow">Hands-on labs</p>
+      <h2>Nine notebooks you run yourself</h2>
+      <p class="lede">The labs live in the aiml-workshop repository, one folder per module. Early labs are guided exercises with unit tests; the last two are forecasting notebooks you can run on Colab.</p>
+      <p class="repo"><span>Repository</span> <span class="mono">aiml-workshop/labs/</span></p>
+
+      <div class="labs">
+
+        <article class="lab" id="lab-l0-1">
+          <div class="lab-head"><span class="lab-id mono">L0.1</span><span class="lab-mod">Module 2</span></div>
+          <h3>Neural Network with 2 Layers</h3>
+          <p>Build a two-layer classifier from first principles: forward propagation with matrix multiplication, the cost function, backward propagation and the training loop, across eight exercises.</p>
+          <p class="stack">NumPy</p>
+        </article>
+
+        <article class="lab" id="lab-l1-1">
+          <div class="lab-head"><span class="lab-id mono">L1.1</span><span class="lab-mod">Module 2</span></div>
+          <h3>Neurons and Layers</h3>
+          <p>Meet TensorFlow and Keras. Run a single neuron as a linear regression model, then add a sigmoid activation to get a logistic neuron.</p>
+          <p class="stack">TensorFlow · Keras</p>
+        </article>
+
+        <article class="lab" id="lab-l1-2">
+          <div class="lab-head"><span class="lab-id mono">L1.2</span><span class="lab-mod">Module 2</span></div>
+          <h3>Coffee Roasting in TensorFlow</h3>
+          <p>Predict good roasts from temperature and duration. Normalize the data, build and train a small two-layer network, then inspect what each layer computes.</p>
+          <p class="stack">TensorFlow · Keras</p>
+        </article>
+
+        <article class="lab" id="lab-l2-1">
+          <div class="lab-head"><span class="lab-id mono">L2.1</span><span class="lab-mod">Module 2</span></div>
+          <h3>NN Binary Classification</h3>
+          <p>Recognize handwritten zeros and ones. Implement the model in TensorFlow, then write forward propagation in NumPy. A vectorized version is an optional extension.</p>
+          <p class="stack">TensorFlow · NumPy</p>
+        </article>
+
+        <article class="lab" id="lab-l3-1">
+          <div class="lab-head"><span class="lab-id mono">L3.1</span><span class="lab-mod">Module 3</span></div>
+          <h3>NN Digits Recognition</h3>
+          <p>Extend to all ten digits with ReLU and softmax. Write softmax yourself, then place it correctly in the model so training stays numerically stable.</p>
+          <p class="stack">TensorFlow · NumPy</p>
+        </article>
+
+        <article class="lab" id="lab-l4-1">
+          <div class="lab-head"><span class="lab-id mono">L4.1</span><span class="lab-mod">Module 4</span></div>
+          <h3>Diagnose Bias and Variance</h3>
+          <p>Set a baseline, compare training and cross-validation error, then test fixes for underfitting (polynomial features, more features, lower λ) and overfitting (higher λ, fewer features, more data).</p>
+          <p class="stack">scikit-learn · NumPy</p>
+        </article>
+
+        <article class="lab" id="lab-l4-2">
+          <div class="lab-head"><span class="lab-id mono">L4.2</span><span class="lab-mod">Module 4</span></div>
+          <h3>Evaluation and Selection</h3>
+          <p>Split data into training, cross-validation and test sets, evaluate regression and classification models, add polynomial features, and compare several neural network architectures.</p>
+          <p class="stack">scikit-learn · TensorFlow</p>
+        </article>
+
+        <article class="lab" id="lab-l5-1">
+          <div class="lab-head"><span class="lab-id mono">L5.1</span><span class="lab-mod">Module 5</span></div>
+          <h3>Temporal Fusion Transformer on Stallion</h3>
+          <p>Forecast beverage demand with a TFT trained on about 20,000 samples. Find a learning rate, train on CPU in a few minutes, evaluate, predict on new data and read the variable importances. Optuna tuning is optional.</p>
+          <p class="stack">PyTorch Forecasting · Colab-ready</p>
+        </article>
+
+        <article class="lab" id="lab-l5-2">
+          <div class="lab-head"><span class="lab-id mono">L5.2</span><span class="lab-mod">Module 5</span></div>
+          <h3>Getting Started with Chronos-2</h3>
+          <p>Forecast with a pretrained time series foundation model: univariate series, covariates for energy prices and retail demand, joint prediction across series, and fine-tuning.</p>
+          <p class="stack">Chronos-2 · pandas · Colab-ready</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="band-dark">
+    <div class="wrap">
+      <span>AI from Zero to Hero · Week 1</span>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

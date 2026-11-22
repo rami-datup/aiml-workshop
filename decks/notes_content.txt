@@ -1,0 +1,39 @@
+
+=== NOTES 2 ===
+Expectation relates to Terminator, Her, Westworld, Ex Machina Artificial Intelligence Continuum: AI ranges from systems that function according to some predefined script, often by following manually programmed if-then type of rules till systems that extracts and quantifies emotional states from our text, voice, facial expressions, and body language to respond empathetically and dynamically. Reference Applied Artificial Intelligence: An Introduction For Business Leaders
+
+=== NOTES 3 ===
+Deep learning is a subfield of machine learning that  builds algorithms by using multi-layered artificial neural networks, which are mathematical structures loosely inspired by how biological neurons fire.
+
+=== NOTES 4 ===
+Deep learning is a subfield of machine learning that builds algorithms by using multi-layered artificial neural networks, which are mathematical structures loosely inspired by how biological neurons fire.
+
+=== NOTES 7 ===
+AlphaFold  is an AI system developed by DeepMind  that predicts a protein’s 3D structure from its amino acid sequence. The database covers the complete human proteome (including fragments  for long proteins) and the proteomes of 47 other key organisms  (e.g. mouse)
+
+=== NOTES 11 ===
+Demis Hassabis, John Jumper, and David Baker
+
+=== NOTES 13 ===
+Each point represents a vegetable,  plant, fruit, root or any other plant-based element
+
+=== NOTES 14 ===
+Each point represents a vegetable, plant, fruit, root or any other plant-based element
+
+=== NOTES 15 ===
+Each point represents a vegetable, plant, fruit, root or any other plant-based element
+
+=== NOTES 16 ===
+Each point represents a vegetable, plant, fruit, root or any other plant-based element
+
+=== NOTES 22 ===
+Each point represents a vegetable, plant, fruit, root or any other plant-based element
+
+=== NOTES 26 ===
+Lactone molecules enhance the creamy notes in dairy milk. Pineapple also contains these types of lactones that are responsible for giving pineapple its flavor and aroma 
+
+=== NOTES 27 ===
+Likewise cabbage,  coconut and peas offers different molecular building blocks to impersonate milk’s properties
+
+=== NOTES 40 ===
+Artificial  Intelligence 
