@@ -52,9 +52,9 @@ Each lab folder contains its notebook(s) plus whatever the notebook needs next t
 | **L5.1** | Temporal Fusion Transformer | Demand forecasting with the Temporal Fusion Transformer on the Stallion dataset (PyTorch Forecasting). About 13 min on CPU. | CPU (GPU optional) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rami-datup/aiml-workshop/blob/main/labs/L5.%20Advanced%20Neural%20Networks/L5.1%20Temporal%20Fusion%20Transformer.ipynb) |
 | **L5.2** | Chronos-2 | Getting started with Chronos-2, a pretrained time-series model: univariate forecasting and forecasting with covariates (e.g. energy prices). | GPU required | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rami-datup/aiml-workshop/blob/main/labs/L5.%20Advanced%20Neural%20Networks/L5.2%20Chronos-2.ipynb) |
 
-> The links above open the notebooks straight from GitHub. This repository is currently **private**, so
-> they only work for accounts that have been granted access. Everyone else should
-> [fork it](#1-fork-the-repo) and use the fork's links (see [below](#3-open-the-notebooks-from-your-fork-in-colab)).
+> The links above open the notebooks straight from GitHub. This repository is **public**, so the badges
+> work for anyone — no fork or GitHub account required. [Fork it](#3-fork-the-repo-optional) only if you
+> want to save your own changes.
 
 ### Decks
 
@@ -74,9 +74,37 @@ Plan A to D branches).
 
 ## Getting started
 
-You need a GitHub account and a Google account. Nothing has to be installed locally.
+You need a Google account to run the labs in Colab; nothing has to be installed locally. A GitHub account
+is only needed if you want your own fork (for example to save and share your changes).
 
-### 1. Fork the repo
+### 1. Open a notebook in Colab
+
+Click an **Open in Colab** badge in the [Labs](#labs) table, or open <https://colab.research.google.com>,
+choose **File → Open notebook → GitHub**, pick `rami-datup/aiml-workshop` and `main`, and select a
+notebook under `labs/`.
+
+The repository is public, so Colab can open it without signing in to GitHub.
+
+Or build the URL yourself: take any notebook's GitHub path and prefix it with
+`https://colab.research.google.com/github/`, with spaces written as `%20`. For example:
+
+```
+https://colab.research.google.com/github/rami-datup/aiml-workshop/blob/main/labs/L4.%20Bias%20vs%20Variance/L4.1%20Diagnose%20Bias%20and%20Variance.ipynb
+```
+
+### 2. Run a lab
+
+1. Choose the runtime: **Runtime → Change runtime type**. Most labs run on CPU. **L5.2 (Chronos-2)
+   needs a GPU runtime** (it loads the model with `device_map="cuda"`).
+2. Run the **first cell**. It installs missing packages (L5) or clones the repo and moves into the lab
+   folder (L0 to L4). Expect a `Lab folder: ...` line as output.
+3. Run the rest of the notebook with **Runtime → Run all**, or cell by cell with Shift+Enter.
+   If Colab asks you to restart the runtime after an install, do that and run again from the top.
+
+### 3. Fork the repo (optional)
+
+Do this only if you want your own copy — for example to edit the notebooks and keep your changes in your
+own GitHub account. The badges above and the setup cells work against the upstream repo as-is.
 
 **Using the web UI**
 
@@ -90,13 +118,10 @@ You need a GitHub account and a Google account. Nothing has to be installed loca
 gh repo fork rami-datup/aiml-workshop --clone     # forks into your account and clones it
 ```
 
-You now have `https://github.com/<your-username>/aiml-workshop`.
+You now have `https://github.com/<your-username>/aiml-workshop`. A fork of a public repo is public by
+default.
 
-> The upstream repository is private. If **Fork** is greyed out or the page returns 404, ask the
-> maintainer ([contact](#contact)) to add your GitHub username as a collaborator first. A fork of a
-> private repo is private too.
-
-### 2. Point the notebooks at your fork
+#### Point the notebooks at your fork
 
 The labs that ship helper files (L0 to L4) start with a **setup cell**. In Colab the notebook file is
 loaded on its own, so the cell clones the repo into `/content/aiml-workshop` and adds the lab folder to
@@ -107,8 +132,9 @@ It clones from the URL in this line:
 REPO_URL = "https://github.com/rami-datup/aiml-workshop.git"
 ```
 
-Change `rami-datup` to **your** GitHub username. To update every notebook at once, run this from the
-repo root (macOS: use `sed -i ''`):
+If you changed helper files or notebooks in your fork, change `rami-datup` to **your** GitHub username so
+the setup cell pulls your version. To update every notebook at once, run this from the repo root (macOS:
+use `sed -i ''`):
 
 ```bash
 git clone https://github.com/<your-username>/aiml-workshop.git && cd aiml-workshop
@@ -117,8 +143,11 @@ grep -rlZ "rami-datup/aiml-workshop" labs --include=*.ipynb \
 git commit -am "Point labs to my fork" && git push
 ```
 
-**Private fork? Give Colab a token.** A private fork cannot be cloned anonymously, so create a
-read-only token and store it as a Colab secret. The setup cell looks for a secret named `GH_TOKEN`.
+#### Private fork? Give Colab a token (rarely needed)
+
+A fork of a public repo is public, so this only applies if you changed your fork's visibility to private.
+A private fork cannot be cloned anonymously, so create a read-only token and store it as a Colab secret.
+The setup cell looks for a secret named `GH_TOKEN`.
 
 1. GitHub, then **Settings → Developer settings → Personal access tokens → Fine-grained tokens →
    Generate new token**.
@@ -126,41 +155,13 @@ read-only token and store it as a Colab secret. The setup cell looks for a secre
 3. Copy the token. In Colab, open the **key icon (Secrets)** in the left sidebar, then **Add new secret**:
    name `GH_TOKEN`, value the token, and switch on **Notebook access**.
 
-A public fork needs no token.
-
-### 3. Open the notebooks from your fork in Colab
-
-Colab can open any notebook straight from GitHub:
-
-1. Go to <https://colab.research.google.com> and choose **File → Open notebook → GitHub**.
-2. Click **Sign in with GitHub** and authorize Colab. For a **private** fork, tick
-   **Include private repos** when asked.
-3. Pick your username, then the `aiml-workshop` repo and `main` branch, and select a notebook under `labs/`.
-
-Or build the URL yourself: take any notebook's GitHub path and prefix it with
-`https://colab.research.google.com/github/`, with spaces written as `%20`. For example:
-
-```
-https://colab.research.google.com/github/<your-username>/aiml-workshop/blob/main/labs/L4.%20Bias%20vs%20Variance/L4.1%20Diagnose%20Bias%20and%20Variance.ipynb
-```
-
-To save your own work back to GitHub: **File → Save a copy in GitHub**, choose your fork, and commit.
-
-### 4. Run a lab
-
-1. Open the notebook in Colab (step 3).
-2. Choose the runtime: **Runtime → Change runtime type**. Most labs run on CPU. **L5.2 (Chronos-2)
-   needs a GPU runtime** (it loads the model with `device_map="cuda"`).
-3. Run the **first cell**. It installs missing packages (L5) or clones the repo and moves into the lab
-   folder (L0 to L4). Expect a `Lab folder: ...` line as output.
-4. Run the rest of the notebook with **Runtime → Run all**, or cell by cell with Shift+Enter.
-   If Colab asks you to restart the runtime after an install, do that and run again from the top.
+To save your work back to GitHub: **File → Save a copy in GitHub**, choose your fork, and commit.
 
 **Troubleshooting**
 
 | Symptom | Fix |
 |---|---|
-| `fatal: could not read Username` / repository not found during the clone | Fork is private or `REPO_URL` still points to the original: add the `GH_TOKEN` secret and check `REPO_URL`. |
+| `fatal: could not read Username` / repository not found during the clone | `REPO_URL` points to a repo you cannot access: use the public upstream URL, or if the fork is private add the `GH_TOKEN` secret and check `REPO_URL`. |
 | `ModuleNotFoundError: utils` (or `autils`, `w3_unittest`) | The setup cell did not run. Run it first, then re-run the failing cell. |
 | Plot styling errors about `deeplearning.mplstyle` | Same cause: the notebook must run inside its lab folder, which the setup cell sets up. |
 | L5.1 install cell says restart required | Restart the runtime, then run from the top. |
@@ -187,4 +188,4 @@ and `data/` resolve, and run the notebook.
 Maintainer: **Rami** ([@rami-datup](https://github.com/rami-datup)).
 
 - Questions, bugs or suggestions: open an [issue](https://github.com/rami-datup/aiml-workshop/issues) on GitHub.
-- Access to the private repository: message the maintainer on GitHub.
+- The repository is public, so you can read, fork and reuse it under the [license](#license).
