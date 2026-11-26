@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2032 · Controlled Explosive Growth</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Josefin+Sans:wght@300;400;600;700&family=Poiret+One&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="position: relative; width: 1280px; height: 720px; overflow: hidden; background: #0F0E0C; font-family: 'Josefin Sans', sans-serif; color: #F1E7CF">
+<div aria-hidden="true" class="a-spin" style="position: absolute; left: -120px; top: -330px; width: 640px; height: 640px; border-radius: 320px; background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(201,165,78,0.10) 0deg 3deg, rgba(0,0,0,0) 3deg 9deg); -webkit-mask-image: radial-gradient(circle, #000 30%, transparent 70%); mask-image: radial-gradient(circle, #000 30%, transparent 70%)"></div>
+<svg aria-hidden="true" width="1280" height="720" viewBox="0 0 1280 720" fill="none" stroke="#C9A54E" style="position: absolute; left: 0; top: 0; pointer-events: none">
+<rect x="20" y="20" width="1240" height="680" stroke-width="1.5"/>
+<rect x="28" y="28" width="1224" height="664" stroke-width="0.6" opacity="0.55"/>
+<g stroke-width="1"><path d="M28 92 A64 64 0 0 1 92 28"/><path d="M28 72 A44 44 0 0 1 72 28"/><path d="M28 52 A24 24 0 0 1 52 28"/></g>
+<g stroke-width="1" transform="translate(1280 0) scale(-1 1)"><path d="M28 92 A64 64 0 0 1 92 28"/><path d="M28 72 A44 44 0 0 1 72 28"/><path d="M28 52 A24 24 0 0 1 52 28"/></g>
+<g stroke-width="1" transform="translate(0 720) scale(1 -1)"><path d="M28 92 A64 64 0 0 1 92 28"/><path d="M28 72 A44 44 0 0 1 72 28"/><path d="M28 52 A24 24 0 0 1 52 28"/></g>
+<g stroke-width="1" transform="translate(1280 720) scale(-1 -1)"><path d="M28 92 A64 64 0 0 1 92 28"/><path d="M28 72 A44 44 0 0 1 72 28"/><path d="M28 52 A24 24 0 0 1 52 28"/></g>
+</svg>
+<div style="position: absolute; left: 72px; top: 46px; width: 776px; display: flex; flex-direction: column; gap: 10px">
+<div class="a-ticker" style="font-size: 13px; letter-spacing: 0.4em; color: #D9B65E; text-transform: uppercase">Plan A · Year 06 of 14</div>
+<div style="display: flex; align-items: baseline; gap: 24px">
+<div class="a-pop" style="font-family: 'Limelight', serif; font-size: 84px; line-height: 80px; color: #D9B65E; text-shadow: 3px 3px 0 #5E4518">2032</div>
+<div class="a-rise d1" style="font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 300">Controlled<br>Explosive Growth</div>
+</div>
+<div class="a-wipe d2" style="padding: 12px 0; border-top: 2px solid #C9A54E; border-bottom: 1px solid #5E5134; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px; letter-spacing: 0.34em; color: #B3A88E; text-transform: uppercase">The remark</div>
+<div style="font-size: 23px; line-height: 30px; font-weight: 600">Real GDP grows <span style="color: #D9B65E">~50% in a single year</span>, so robot and compute output is capped and the permits are auctioned.</div>
+</div>
+<div style="display: flex; gap: 16px">
+<div class="a-fade d4" style="flex: 0 0 420px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px; letter-spacing: 0.24em; color: #B3A88E; text-transform: uppercase">Share of US labor output</div>
+<div class="a-wipe d5" style="width: 420px; height: 222px">
+<svg role="img" aria-label="Stacked area chart, 2025 to 2040: human cognitive labor falls from about 69% to 5% of US labor output, human physical from about 26% to 4%; AI rises to about two-thirds by 2040 and robots take the rest." width="420" height="222" viewBox="0 0 420 222">
+<defs>
+<pattern id="hatchR" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#7E2620"/><path d="M0 0 V6" stroke="#B0473B" stroke-width="2"/></pattern>
+<pattern id="hatchG" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#26231E"/><path d="M0 0 V6" stroke="#4E4840" stroke-width="2"/></pattern>
+</defs>
+<rect x="30" y="10" width="375" height="190" fill="url(#hatchR)"/>
+<polygon points="30,13.8 55,13.8 80,13.8 105,15.7 130,15.7 155,17.6 180,19.5 205,29 230,74.6 255,110.7 280,116.4 305,106.9 330,93.6 355,78.4 380,65.1 405,55.6 405,200 30,200" fill="#A3332B" stroke="#F1E7CF" stroke-width="0.8"/>
+<polygon points="30,19.5 55,21.4 80,23.3 105,25.2 130,29 155,30.9 180,38.5 205,55.6 230,106.9 255,150.6 280,175.3 305,175.3 330,175.3 355,175.3 380,177.2 405,182.9 405,200 30,200" fill="url(#hatchG)" stroke="#F1E7CF" stroke-width="0.8"/>
+<polygon points="30,68.9 55,70.8 80,74.6 105,80.3 130,87.9 155,91.7 180,106.9 205,133.5 230,156.3 255,177.2 280,186.7 305,186.7 330,186.7 355,186.7 380,186.7 405,190.5 405,200 30,200" fill="#0B0A08" stroke="#F1E7CF" stroke-width="0.8"/>
+<path d="M205 10 V200" stroke="#D9B65E" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g font-family="Josefin Sans, sans-serif" font-size="12" fill="#F1E7CF">
+<text x="40" y="150">Human cognitive</text>
+<text x="40" y="52">Human physical</text>
+<text x="318" y="170">AI</text>
+<text x="300" y="40">Robots</text>
+</g>
+<g font-family="Josefin Sans, sans-serif" font-size="11" fill="#B3A88E" text-anchor="middle">
+<text x="30" y="216">2025</text><text x="155" y="216">2030</text><text x="205" y="216" fill="#D9B65E">2032</text><text x="280" y="216">2035</text><text x="405" y="216">2040</text>
+</g>
+<g font-family="Josefin Sans, sans-serif" font-size="10" fill="#B3A88E" text-anchor="end">
+<text x="26" y="14">100%</text><text x="26" y="109">50%</text><text x="26" y="203">0%</text>
+</g>
+</svg>
+</div>
+</div>
+<div class="a-fade d7" style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 4px">
+<div style="font-size: 12px; letter-spacing: 0.24em; color: #B3A88E; text-transform: uppercase">US tax revenue sources</div>
+<svg role="img" aria-label="Pie charts. 2030: 10 trillion dollars total, 87% income tax, 6% corporate, 7% sales. 2032: 65 trillion, 57% compute permits, 23% robot permits. 2034: 180 trillion, 74% robot permits, 26% compute permits." width="340" height="222" viewBox="0 0 340 222">
+<defs><pattern id="hatchG2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#26231E"/><path d="M0 0 V5" stroke="#5A544A" stroke-width="2"/></pattern></defs>
+<g font-family="Josefin Sans, sans-serif" fill="#B3A88E" font-size="12" text-anchor="middle"><text x="24" y="20">2030</text><text x="110" y="20">2032</text><text x="258" y="20">2034</text></g>
+<g class="a-pop d8" style="transform-origin: 24px 110px">
+<circle cx="24" cy="110" r="9" fill="none" stroke="url(#hatchG2)" stroke-width="18" pathLength="100" stroke-dasharray="87 100" transform="rotate(-90 24 110)"/>
+<circle cx="24" cy="110" r="9" fill="none" stroke="#0B0A08" stroke-width="18" pathLength="100" stroke-dasharray="6 100" stroke-dashoffset="-87" transform="rotate(-90 24 110)"/>
+<circle cx="24" cy="110" r="9" fill="none" stroke="#8C8068" stroke-width="18" pathLength="100" stroke-dasharray="7 100" stroke-dashoffset="-93" transform="rotate(-90 24 110)"/>
+<circle cx="24" cy="110" r="18" fill="none" stroke="#F1E7CF" stroke-width="0.8"/>
+</g>
+<g class="a-pop d9" style="transform-origin: 110px 110px">
+<circle cx="110" cy="110" r="22.5" fill="none" stroke="#A3332B" stroke-width="45" pathLength="100" stroke-dasharray="57 100" transform="rotate(-90 110 110)"/>
+<circle cx="110" cy="110" r="22.5" fill="none" stroke="#D9705E" stroke-width="45" pathLength="100" stroke-dasharray="23 100" stroke-dashoffset="-57" transform="rotate(-90 110 110)"/>
+<circle cx="110" cy="110" r="22.5" fill="none" stroke="url(#hatchG2)" stroke-width="45" pathLength="100" stroke-dasharray="20 100" stroke-dashoffset="-80" transform="rotate(-90 110 110)"/>
+<circle cx="110" cy="110" r="45" fill="none" stroke="#F1E7CF" stroke-width="0.8"/>
+</g>
+<g class="a-pop d10" style="transform-origin: 258px 110px">
+<circle cx="258" cy="110" r="37.5" fill="none" stroke="#D9705E" stroke-width="75" pathLength="100" stroke-dasharray="74 100" transform="rotate(-90 258 110)"/>
+<circle cx="258" cy="110" r="37.5" fill="none" stroke="#A3332B" stroke-width="75" pathLength="100" stroke-dasharray="26 100" stroke-dashoffset="-74" transform="rotate(-90 258 110)"/>
+<circle cx="258" cy="110" r="75" fill="none" stroke="#F1E7CF" stroke-width="0.8"/>
+</g>
+<g font-family="Limelight, serif" fill="#D9B65E" font-size="17" text-anchor="middle"><text x="24" y="204">$10T</text><text x="110" y="204">$65T</text><text x="258" y="204">$180T</text></g>
+<g font-family="Josefin Sans, sans-serif" fill="#B3A88E" font-size="10" text-anchor="middle"><text x="24" y="218">income tax 87%</text><text x="110" y="218">compute 57% · robots 23%</text><text x="258" y="218">robot permits 74% · compute 26%</text></g>
+</svg>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 22px">
+<div class="a-rise d12" style="display: flex; gap: 10px"><span style="color: #C9A54E">◆</span><span><b>60M AI agents at 20× speed</b> do the work of ~3 billion humans, more cognitive labor than all Americans combined.</span></div>
+<div class="a-rise d14" style="display: flex; gap: 10px"><span style="color: #C9A54E">◆</span><span>Growth is capped at 4×/yr inside monitored SEZs. US cap: <b>80M robots, 5B H100e</b>. Permits raise <b style="color: #D9B65E">$50T</b>, ~10× 2025 federal revenue.</span></div>
+</div>
+</div>
+<div style="position: absolute; left: 880px; top: 52px">
+<dc-import name="StatPanel" year="2032" hint-size="344px,616px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
