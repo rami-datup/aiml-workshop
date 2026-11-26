@@ -14,18 +14,15 @@ time-series forecasting models.
 
 ```
 aiml-workshop/
-├── decks/                         Slide decks and course presentation
-│   ├── Course Presentation.pdf          full deck, PDF export
-│   ├── Course Presentation.dc.html      full deck, HTML (rendered by deck-stage.js)
-│   ├── Intro & Motivation.dc.html
-│   ├── Neural Network Implementation.dc.html
-│   ├── Activation Functions.dc.html
-│   ├── Regularization, Bias and Variance.dc.html
-│   ├── Advanced Neural Networks.dc.html
+├── decks/                         Slide decks, one self-contained folder per deck
+│   ├── Course Presentation/             course hub (HTML) and full deck (PDF)
+│   ├── Intro & Motivation/              slides, images and the Week 1 .pptx source
+│   ├── Neural Network Implementation/
+│   ├── Activation Functions/
+│   ├── Regularization, Bias and Variance/
+│   ├── Advanced Neural Networks/
 │   ├── ▶ The Film — AI 2040 Plan A-html/   "AI 2040 Plan A" film deck (Main.dc.html is the entry point)
-│   ├── pptx_media/                      images extracted from the original slides
-│   ├── uploads/                         source files (incl. the Week 1 .pptx)
-│   └── README.md                        how to view the HTML decks
+│   └── README.md                        what is in each folder and how to view the decks
 ├── labs/
 │   ├── L0. Neural Network from Scratch/
 │   ├── L1. Neural Network/
@@ -61,12 +58,12 @@ Each lab folder contains its notebook(s) plus whatever the notebook needs next t
 
 ### Decks
 
-Open `decks/Course Presentation.pdf` for the full deck. The `.dc.html` decks need a local web server
-(a page opened straight from disk may not run):
+Open `decks/Course Presentation/Course Presentation.pdf` for the full deck. The `.dc.html` decks need a local web
+server (a page opened straight from disk may not run). Start at the course hub, which links to each lecture:
 
 ```bash
 cd decks
-python3 -m http.server      # then open http://localhost:8000 and pick a deck
+python3 -m http.server      # then open http://localhost:8000/Course%20Presentation/Course%20Presentation.dc.html
 ```
 
 The **AI 2040 Plan A** deck lives in its own folder, `decks/▶ The Film — AI 2040 Plan A-html/`. Serve that
