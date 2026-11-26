@@ -4,7 +4,7 @@ Hands-on learning material for an **AI / Machine Learning workshop**: slide deck
 sequence of Google Colab labs that take you from a neural network written in NumPy to modern
 time-series forecasting models.
 
-- **Decks**: the course presentation, split by topic, with speaker notes.
+- **Decks**: the course presentation, split by topic, with speaker notes, plus the "The Film — AI 2040 Plan A" deck.
 - **Labs (L0 to L5)**: Jupyter notebooks designed to run in **Google Colab**, with no manual uploads
   and no Google Drive mounting. Each lab sets up its own helper files and data.
 
@@ -22,6 +22,7 @@ aiml-workshop/
 │   ├── Activation Functions.dc.html
 │   ├── Regularization, Bias and Variance.dc.html
 │   ├── Advanced Neural Networks.dc.html
+│   ├── ▶ The Film — AI 2040 Plan A-html/   "AI 2040 Plan A" film deck (Main.dc.html is the entry point)
 │   ├── pptx_media/                      images extracted from the original slides
 │   ├── uploads/                         source files (incl. the Week 1 .pptx)
 │   └── README.md                        how to view the HTML decks
@@ -67,6 +68,10 @@ Open `decks/Course Presentation.pdf` for the full deck. The `.dc.html` decks nee
 cd decks
 python3 -m http.server      # then open http://localhost:8000 and pick a deck
 ```
+
+The **AI 2040 Plan A** deck lives in its own folder, `decks/▶ The Film — AI 2040 Plan A-html/`. Serve that
+folder the same way and open `Main.dc.html` (a timeline of per-year pages, `Y2027` to `Y2040`, and the
+Plan A to D branches).
 
 ---
 
